@@ -22,46 +22,46 @@ const icons = {
   </footer>
 </div>
 
-<style>
-  .weather {
-    margin-bottom: 2rem;
-  }
+<style lang="scss">
+.weather {
+  margin-bottom: 2rem;
 
-  .weather__header {
+  &__header {
     display: flex;
     flex-direction: row;
     align-items: center;
     column-gap: 2rem;
   }
 
-  .weather__cloud {
+  &__cloud {
     animation: nudge 5s infinite;
   }
 
-  .weather__footer {
+  &__footer {
     display: flex;
     flex-direction: row;
     align-items: center;
     column-gap: 2rem;
-  }
 
-  .weather__footer p {
-    display: flex;
-    align-items: center;
-    column-gap: .5rem;
+    p {
+      display: flex;
+      align-items: center;
+      column-gap: .5rem;
+    }
   }
+}
 
-  @keyframes nudge {
-    0%, 100% {
-      transform: translate(0, 0);
-    }
-    
-    50% {
-      transform: translate(10px, 0);
-    }
-    
-    80% {
-      transform: translate(0px, 0);
-    }
+@keyframes nudge {
+  0%, 100% {
+    transform: translate(0, 0);
   }
+  
+  50% {
+    transform: translate(10px, 0);
+  }
+  
+  80% {
+    transform: translate(0px, 0);
+  }
+}
 </style>

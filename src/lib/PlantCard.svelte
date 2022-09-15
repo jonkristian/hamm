@@ -14,7 +14,6 @@
       problems.push(element.replace(/^\s*|\s*$/g,'').replace(/\s/g, '_'));
     });
   }
-  console.log(problems);
 </script>
     
 <div class="plant {item.state}">
@@ -76,35 +75,32 @@
   </ul>
 </div>
 
-<style>
+<style lang="scss">
   .plant {
     display: flex;
     flex-direction: row;
     align-items: center;
     column-gap: 1rem;
     margin-bottom: 1rem;
-  }
-
-  .plant__title {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    column-gap: .5rem;
-  }
-
-  .plant__details {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    margin-left: auto;
-    column-gap: .8rem;
-    font-size: 1.1rem;
-  }
-
-  .plant__details li {
-    display: flex;
-    align-items: center;
-    margin-top: .5rem;
+    &__title {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      column-gap: .5rem;
+    }
+    &__details {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      margin-left: auto;
+      column-gap: .8rem;
+      font-size: 1.1rem;
+      li {
+        display: flex;
+        align-items: center;
+        margin-top: .5rem;
+      }
+    }
   }
 
   .plant__problems {
@@ -115,12 +111,11 @@
     flex-direction: row;
     align-items: center;
     column-gap: 1rem;
-  }
-
-  .plant__problems li {
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    color: rgb(255, 155, 155);
+    li {
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      color: rgb(255, 155, 155);
+    }
   }
 </style>

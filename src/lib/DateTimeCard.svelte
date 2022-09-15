@@ -1,10 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
-
-  import Icon from '@iconify/svelte';
   export let item;
 
-	// Getting The Current Date & Time And Setting It
   let currentDateTime = new Date();
 	
 	onMount(() => {
@@ -47,17 +44,17 @@
   <p class="date">{date}</p>
 </div>
 
-<style>
+<style lang="scss">
   .datetime {
     margin-bottom: 2rem;
-  }
-  .datetime__header {
-    display: flex;
-  }
 
-  .datetime__header .second {
-    color: #999;
-    font-size: 2rem;
-    line-height: 175%;
+    &__header {
+      display: flex;
+      .second {
+        color: #999;
+        font-size: 2rem;
+        line-height: 175%;
+      }
+    }
   }
 </style>

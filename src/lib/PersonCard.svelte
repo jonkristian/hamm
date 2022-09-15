@@ -15,7 +15,7 @@
   {item.state in states ? states[item.state] : item.state}
 </div>
 
-<style>
+<style lang="scss">
   .person {
     display: flex;
     flex-direction: row;
