@@ -1,4 +1,3 @@
-// NOTE: This is an example cards.js file, rename this file to cards.js and start adding your entities.
 import EntityCard from "./lib/EntityCard.svelte";
 import PersonCard from "./lib/PersonCard.svelte";
 import WeatherCard from "./lib/WeatherCard.svelte";
@@ -36,6 +35,7 @@ export const cards = {
 
   'plant.zamioculcas_zamiifolia': {
     placement: 'left',
+    display_brightness: false,
     component: PlantCard,
   }
 };

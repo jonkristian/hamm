@@ -1,6 +1,5 @@
 <script lang="ts">
   import Icon from '@iconify/svelte';
-import { set_attributes } from 'svelte/internal';
   export let item;
 
   const icons = {
@@ -31,18 +30,22 @@ import { set_attributes } from 'svelte/internal';
           {item.attributes.moisture} {item.attributes.unit_of_measurement_dict['moisture']}
         </li>
       {/if}
-
-      {#if item.attributes.conductivity != 'unavailable'}
-      <li class="temperature">
-        <Icon icon="mdi-temperature" />
-        {item.attributes.conductivity} {item.attributes.unit_of_measurement_dict['conductivity']}
-      </li>
-      {/if}
-
       {#if item.attributes.temperature != 'unavailable'}
         <li class="temperature">
           <Icon icon="mdi-temperature" />
           {item.attributes.temperature} {item.attributes.unit_of_measurement_dict['temperature']}
+        </li>
+      {/if}
+      {#if item.attributes.conductivity != 'unavailable'}
+      <li class="conductivity">
+        <Icon icon="mdi-leaf" />
+        {item.attributes.conductivity} {item.attributes.unit_of_measurement_dict['conductivity']}
+      </li>
+      {/if}
+      {#if item.display_brightness && item.attributes.brightness != 'unavailable'}
+        <li class="brightness">
+          <Icon icon="mdi-sun" />
+          {item.attributes.brightness} {item.attributes.unit_of_measurement_dict['brightness']}
         </li>
       {/if}
     </ul>
@@ -54,8 +57,7 @@ import { set_attributes } from 'svelte/internal';
         &darr;
         <Icon height={32} icon="mdi-water-alert" />
       {/if}
-
-      {#if problems.includes('conductivity_low')}
+      {#if problems.includes('moisture_low')}
         &uarr;
         <Icon height={32} icon="mdi-watering-can" />
       {/if}
@@ -66,7 +68,6 @@ import { set_attributes } from 'svelte/internal';
         &darr;
         <Icon height={32} icon="mdi-leaf" />
       {/if}
-
       {#if problems.includes('conductivity_low')}
         &uarr;
         <Icon height={32} icon="mdi-leaf-off" />
