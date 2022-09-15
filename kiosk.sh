@@ -27,7 +27,7 @@
 ### --start-fullscreen (not necessary in kiosk mode)
 ### --incognito
 
-chromium-browser --noerrdialogs --disable-infobars --incognito --kiosk http://localhost:4173/
+chromium-browser --noerrdialogs --disable-infobars --incognito --kiosk http://localhost:5173/
 
 # You may want to enclose the btowser command in a *while loop* to reopen the browser when user closes it instead of closing x server.
 # In this case add an `&` at the end of the browser line:
