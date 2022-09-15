@@ -16,58 +16,38 @@ body {
 }
 
 .cards {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr min-content 1fr;
-  grid-template-areas:
-    "top top top"
-    "left center right"
-    "bottom bottom bottom";
   gap: 1rem;
+  grid-template-columns: 1fr min-content 1fr;
+  grid-template-areas: 
+  "top top top"
+  "upper-left upper-center upper-right"
+  "middle-left middle-center middle-right"
+  "lower-left lower-center lower-right"
+  "bottom bottom bottom";
+  grid-auto-columns: max-content;
+  grid-auto-rows: max-content;
   height: 100%;
-}
 
-.area {
-  &-top {
+  &__card {
+    margin: 1rem;
+  }
+
+  .top {
     grid-area: top;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    row-gap: 1rem;
-    margin: 1rem;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 
-  &-left {
-    grid-area: left;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin: 1rem;
-  }
-
-  &-center {
-    grid-area: center;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin: 1rem;
-  }
-
-  &-right {
-    grid-area: right;
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-    margin: 1rem;
-  }
-
-  &-bottom {
-    grid-area: bottom;
-    margin-top: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    row-gap: 1rem;
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: inline-flex;
+    justify-content: space-between;
   }
 }
 

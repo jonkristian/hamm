@@ -3,8 +3,16 @@
   import { haStore } from './ha.js';
   import { t, locale, locales } from "./i18n";
 
+  import GridItem from './lib/GridItem.svelte';
+
   $locale = 'nb';
   $: isLoading = $haStore.length === 0;
+
+  export const gridArea = (placement) => {
+    if(placement == 'top' || placement == 'bottom') {
+      return `<style="grid-area: ${placement};">`;
+    }
+  }
 </script>
 
 {#await haStore.init()}
@@ -12,16 +20,10 @@
 {:then}
 
   {#if !isLoading}
-
-  <div class="cards">
-    {#each $haStore as item}
-      <div class="area-{item[0].placement}">
-        {#each item as entity}
-          <svelte:component this={entity.component} item={entity} />
-        {/each}
+    <div class="cards">
+      {#each $haStore as item}
+        <GridItem {item} />
+      {/each}
     </div>
-    {/each}
-  </div>
-
   {/if}
 {/await}

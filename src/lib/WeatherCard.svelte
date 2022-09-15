@@ -10,12 +10,12 @@ const icons = {
 };
 </script>
 
-<div class="weather">
-  <header class="weather__header">
+<div class="weathercard">
+  <header class="weathercard__header">
     <h1>{item.attributes.temperature}<span>{item.attributes.temperature_unit}</span></h1>
-    <span class="weather__cloud"><Icon height={100} icon="{icons[item.state]}" /></span>
+    <span class="weathercard__cloud"><Icon height={80} icon="{icons[item.state]}" /></span>
   </header>
-  <footer class="weather__footer">
+  <footer class="weathercard__footer">
     <p><Icon icon="mdi-water-percent" /> {item.attributes.humidity} %</p>
     <p><Icon icon="mdi-weather-windy" /> {item.attributes.wind_speed} {item.attributes.wind_speed_unit}</p>
     <p><Icon icon="mdi-weather-windy-variant" /> {item.attributes.pressure} {item.attributes.pressure_unit}</p>
@@ -23,9 +23,7 @@ const icons = {
 </div>
 
 <style lang="scss">
-.weather {
-  margin-bottom: 2rem;
-
+.weathercard {
   &__header {
     display: flex;
     flex-direction: row;

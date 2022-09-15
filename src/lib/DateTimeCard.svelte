@@ -36,25 +36,25 @@
   $: second = secondFormatter.format(currentDateTime);
 </script>
 
-<div class="datetime">
-  <header class="datetime__header">
-    <h1 class="time">{time}</h1>
-    <span class="second">{second}</span>
+<div class="datetimecard">
+  <header class="datetimecard__header">
+    <h1 class="datetimecard__time">{time}</h1>
+    <span class="datetimecard__second">{second}</span>
   </header>
-  <p class="date">{date}</p>
+  <p class="datetimecard__date">{date}</p>
+
 </div>
 
 <style lang="scss">
-  .datetime {
-    margin-bottom: 2rem;
-
+  .datetimecard {
     &__header {
       display: flex;
-      .second {
-        color: #999;
-        font-size: 2rem;
-        line-height: 175%;
-      }
+    }
+
+    &__second {
+      color: #999;
+      font-size: 2rem;
+      line-height: 175%;
     }
   }
 </style>

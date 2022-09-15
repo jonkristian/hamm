@@ -4,29 +4,38 @@ import WeatherCard from "./lib/WeatherCard.svelte";
 import PlantCard from "./lib/PlantCard.svelte";
 import DateTimeCard from "./lib/DateTimeCard.svelte";
 
+// Placements explained:
+// top (elements laid out entire width with space between).
+
+// upper-left  upper-center  upper-right
+// middle-left middle-center middle-right
+// lower-left  lower-center  lower-right
+
+// bottom (elements laid out entire width with space between).
+
 export const cards = {
-  'person.johndoe': {
-    placement: 'top',
-    icon: 'mdi-face-man',
-    title: 'Name',
-    component: PersonCard,
+  'weather.home': {
+    placement: 'upper-left',
+    component: WeatherCard,
   },
 
   'internal.datetime': {
-    placement: 'right',
+    placement: 'upper-right',
     hour12: false,
     seconds: false,
     lang: 'NO',
     component: DateTimeCard,
   },
 
-  'weather.home': {
-    placement: 'left',
-    component: WeatherCard,
+  'person.johndoe': {
+    placement: 'middle-left',
+    icon: 'mdi-face-man',
+    title: 'Name',
+    component: PersonCard,
   },
   
   'binary_sensor.loft_sliding_door': {
-    placement: 'left',
+    placement: 'middle-left',
     icon: 'mdi-door',
     state_on: 'Åpen',
     state_off: 'Lukket',
@@ -34,7 +43,7 @@ export const cards = {
   },
 
   'plant.zamioculcas_zamiifolia': {
-    placement: 'left',
+    placement: 'middle-left',
     display_brightness: false,
     component: PlantCard,
   }

@@ -16,13 +16,13 @@
   }
 </script>
     
-<div class="plant {item.state}">
+<div class="plantcard {item.state}">
   <Icon height={48} icon="{icons[item.state]}" />
 
-  <div class="plant__main">
+  <div class="plantcard__main">
     <h5 class="plant__title">{item.attributes.friendly_name}</h5>
 
-    <ul class="plant__details">
+    <ul class="plantcard__details">
       {#if item.attributes.moisture != 'unavailable'}
         <li class="moisture">
           <Icon icon="mdi-water-percent" />
@@ -50,8 +50,8 @@
     </ul>
   </div>
 
-  <ul class="plant__problems">
-    <li class="plant__problems-moisture">
+  <ul class="plantcard__problems">
+    <li class="plantcard__problems-moisture">
       {#if problems.includes('moisture_high')}
         &darr;
         <Icon height={32} icon="mdi-water-alert" />
@@ -62,7 +62,7 @@
       {/if}
     </li>
 
-    <li class="plant__problems-conductivity">
+    <li class="plantcard__problems-conductivity">
       {#if problems.includes('conductivity_high')}
         &darr;
         <Icon height={32} icon="mdi-leaf" />
@@ -76,7 +76,7 @@
 </div>
 
 <style lang="scss">
-  .plant {
+  .plantcard {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -103,7 +103,7 @@
     }
   }
 
-  .plant__problems {
+  .plantcard__problems {
     list-style: none;
     padding: 0;
     margin-left: auto;
