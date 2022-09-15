@@ -17,7 +17,7 @@ body {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr min-content 1fr;
   grid-template-areas:
     "top top top"
     "left center right"
