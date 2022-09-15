@@ -1,0 +1,34 @@
+{
+  "name": "hamagic",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@iconify/svelte": "^2.2.1",
+    "@sveltejs/vite-plugin-svelte": "^1.0.1",
+    "@tsconfig/svelte": "^3.0.0",
+    "@types/lodash": "^4.14.185",
+    "daisyui": "^2.25.0",
+    "lodash": "^4.17.21",
+    "postcss": "^8.4.16",
+    "svelte": "^3.49.0",
+    "svelte-check": "^2.8.0",
+    "svelte-feather-icons": "^4.0.0",
+    "svelte-preprocess": "^4.10.7",
+    "tailwindcss": "^3.1.8",
+    "tslib": "^2.4.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.7"
+  },
+  "dependencies": {
+    "@fontsource/arimo": "^4.5.9",
+    "home-assistant-js-websocket": "^8.0.0",
+    "svelte-material-icons": "^2.0.4"
+  }
+}
