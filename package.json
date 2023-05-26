@@ -14,6 +14,11 @@
     "build:arm": "vite build && electron-builder --linux deb --arm64",
     "deploy": "vite build && electron-builder --linux deb --arm64 --publish always"
   },
+  "build": {
+    "publish": [
+      "github"
+    ]
+  },
   "devDependencies": {
     "@iconify/svelte": "^2.2.1",
     "@sveltejs/vite-plugin-svelte": "^1.0.1",

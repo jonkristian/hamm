@@ -1,6 +1,6 @@
 # HAMM (Home Assistant Magic Mirror)
 
-![image.png](./assets/hamm_preview.png)
+![image.png](./resources/hamm_preview.png)
 
 Electron Application built with vite+svelte to to display [Home Assistant](https://home-assistant.io) entities in a magic mirror like fashion. It connects to Home Assistant through websockets.
 
