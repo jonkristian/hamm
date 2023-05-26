@@ -3,16 +3,16 @@
   export let item;
 
   const states = {
-    home: 'Hjemme',
-    not_home: 'Borte',
-    work: 'Arbeid',
+    'home': 'er hjemme',
+    'not_home': 'er borte',
+    'work': 'på arbeid',
 };
 </script>
 
 <div class="personcard">
   <Icon height={32} icon="{item.icon ? item.icon : item.attributes.icon}" />
   {item.title ? item.title : item.attributes.friendly_name}
-  {item.state in states ? states[item.state] : item.state}
+  {item.state in states ? states[item.state] : 'er borte'}
 </div>
 
 <style lang="scss">

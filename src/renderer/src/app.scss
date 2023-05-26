@@ -18,9 +18,9 @@ body {
 .cards {
   position: relative;
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: 1fr min-content 1fr;
-  grid-template-areas: 
+  grid-template-areas:
   "top top top"
   "upper-left upper-center upper-right"
   "middle-left middle-center middle-right"
@@ -32,6 +32,7 @@ body {
 
   &__card {
     margin: 1rem;
+    font-size: 1.2rem;
   }
 
   .top {
@@ -75,4 +76,5 @@ h4 {
 
 h5 {
   font-size: 1.4rem;
+  font-weight: 400;
 }

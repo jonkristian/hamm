@@ -1,0 +1,8 @@
+appId: com.electron.app
+productName: hamm
+linux:
+  target:
+    - deb
+  maintainer: electronjs.org
+  category: Utility
+npmRebuild: false

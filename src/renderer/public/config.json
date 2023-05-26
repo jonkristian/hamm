@@ -1,0 +1,5 @@
+{
+  "ha_url":"192.168.1.100",
+  "ha_port":"8123",
+  "ha_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI4OTg2ZTE0ZjExZWY0ZTk0YTQxNzE3YzBmYmZlZGFkZSIsImlhdCI6MTY2MjI4OTUxMSwiZXhwIjoxOTc3NjQ5NTExfQ.t7OBQGwmbRmQqxHVktF99DWa5_6JOmio5lI6HyhmXLo"
+}

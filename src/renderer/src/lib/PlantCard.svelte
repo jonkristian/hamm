@@ -15,12 +15,12 @@
     });
   }
 </script>
-    
+
 <div class="plantcard {item.state}">
   <Icon height={48} icon="{icons[item.state]}" />
 
   <div class="plantcard__main">
-    <h5 class="plant__title">{item.attributes.friendly_name}</h5>
+    <h5 class="plant__title">{item.attributes?.friendly_name}</h5>
 
     <ul class="plantcard__details">
       {#if item.attributes.moisture != 'unavailable'}
@@ -82,25 +82,28 @@
     align-items: center;
     column-gap: 1rem;
     margin-bottom: 1rem;
-    &__title {
-      display: flex;
-      align-items: center;
-      flex-direction: row;
-      column-gap: .5rem;
-    }
-    &__details {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      margin-left: auto;
-      column-gap: .8rem;
-      font-size: 1.1rem;
-      li {
-        display: flex;
-        align-items: center;
-        margin-top: .5rem;
-      }
-    }
+  }
+
+  .plantcard__title {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    column-gap: .5rem;
+  }
+
+  .plantcard__details {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    margin-left: auto;
+    column-gap: .8rem;
+    font-size: 1.1rem;
+  }
+
+  .plantcard__details li {
+    display: flex;
+    align-items: center;
+    margin-top: .5rem;
   }
 
   .plantcard__problems {
@@ -111,11 +114,12 @@
     flex-direction: row;
     align-items: center;
     column-gap: 1rem;
-    li {
-      display: flex;
-      align-items: center;
-      font-size: 2rem;
-      color: rgb(255, 155, 155);
-    }
+  }
+
+  .plantcard__problems li {
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: rgb(255, 155, 155);
   }
 </style>
