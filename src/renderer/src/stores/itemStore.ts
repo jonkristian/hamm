@@ -1,25 +1,32 @@
 import _ from 'lodash';
 import { derived } from 'svelte/store';
 import { stateStore } from './stateStore';
-import { fileStore } from './fileStore';
+import { cardStore } from './cardStore';
 
-export const itemStore = derived([stateStore, fileStore], ([$stateStore, $fileStore], set) => {
-  let items = {};
+let staticCardStore = undefined;
 
-  if ($stateStore.length > 0 && $fileStore) {
-    const { cards } = $fileStore as { cards: any };
+cardStore.subscribe(value => {
+  staticCardStore = value;
+});
 
-    if (cards !== null) {
+export const itemStore = derived(
+  [stateStore],
+  ([$stateStore], set) => {
+    let items = {};
+
+    if ($stateStore.length > 0 && staticCardStore) {
+      const cards = staticCardStore;
+
       const validatedCards = validateCards(cards, $stateStore);
 
       if (validatedCards) {
         items = groupCardsByPlacement(validatedCards);
       }
     }
-  }
 
-  set(Object.entries(items));
-});
+    set(Object.entries(items));
+  }
+);
 
 // Validate the cards by merging with stateStore
 const validateCards = (cards, stateStore) => {
@@ -30,7 +37,10 @@ const validateCards = (cards, stateStore) => {
 
     if (card.hasOwnProperty('entities')) {
       for (let [key] of Object.entries(card.entities)) {
-        _.merge(card.entities[key], _.find(stateStore, { entity_id: key }));
+        _.merge(
+          card.entities[key],
+          _.find(stateStore, { entity_id: card.entities[key].entity_id })
+        );
       }
     }
   });

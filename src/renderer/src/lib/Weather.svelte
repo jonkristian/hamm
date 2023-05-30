@@ -1,5 +1,6 @@
 <script lang="ts">
 import Icon from '@iconify/svelte';
+import { t } from "../i18n";
 import dayjs from 'dayjs';
 export let item;
 
@@ -26,9 +27,27 @@ function getCardinalDirection(angle, format=null) {
   if('icons' == format) {
     directions = ['↑', '↗', '→', '↘', '↓', '↙', '←', '↖'];
   } else if('both' == format) {
-    directions = ['↑N', '↗NØ', '→Ø', '↘SØ', '↓S', '↙SV', '←V', '↖NV'];
+    directions = [
+      `↑${$t('north')}`,
+      `↗${$t('north-east')}`,
+      `→${$t('east')}`,
+      `↘${$t('south-east')}`,
+      `↓${$t('south')}`,
+      `↙${$t('south-west')}`,
+      `←${$t('west')}`,
+      `↖${$t('north-west')}`
+    ];
   } else {
-    directions = ['N', 'NØ', 'Ø', 'SØ', 'S', 'SV', 'V', 'NV'];
+    directions = [
+      `${$t('north')}`,
+      `${$t('north-east')}`,
+      `${$t('east')}`,
+      `${$t('south-east')}`,
+      `${$t('south')}`,
+      `${$t('south-west')}`,
+      `${$t('west')}`,
+      `${$t('north-west')}`
+    ];
   }
 
   return directions[Math.round(angle / 45) % 8];
@@ -39,10 +58,10 @@ function getCardinalDirection(angle, format=null) {
 <div class="weathercard">
   <header class="header">
     <h1>{item.attributes.temperature}<span>{item.attributes.temperature_unit}</span></h1>
-    <span class="cloud"><Icon height={80} icon="{icons[item.state]}" /></span>
+    <span class="cloud"><Icon color="var(--color-blue)" height={80} icon="{icons[item.state]}" /></span>
   </header>
   <footer class="footer">
-    <p><Icon icon="mdi-water-percent" /> {item.attributes.humidity} %</p>
+    <p><Icon icon="mdi-water-percent" /> {item.attributes.humidity}%</p>
     <p><Icon icon="mdi-weather-windy" /> {getCardinalDirection(item.attributes.wind_bearing, 'both')} {item.attributes.wind_speed} {item.attributes.wind_speed_unit}</p>
     <p><Icon icon="mdi-weather-windy-variant" /> {item.attributes.pressure} {item.attributes.pressure_unit}</p>
   </footer>
@@ -71,7 +90,7 @@ function getCardinalDirection(angle, format=null) {
     display: flex;
     flex-direction: row;
     align-items: center;
-    column-gap: 2rem;
+    column-gap: var(--space-lg);
   }
 
   .cloud {
@@ -85,19 +104,19 @@ function getCardinalDirection(angle, format=null) {
     display: flex;
     flex-direction: row;
     align-items: center;
-    column-gap: 2rem;
+    column-gap: var(--space-lg);
   }
 
   .footer p {
     display: flex;
     align-items: center;
-    column-gap: .5rem;
+    column-gap: var(--space-sm);
   }
 
   .forecast {
     list-style: none;
     padding: 0;
-    margin-top: 1rem;
+    margin-top: var(--space-md);
   }
 
   .forecast-item {
@@ -105,12 +124,12 @@ function getCardinalDirection(angle, format=null) {
     flex-direction: row;
     align-items: center;
     column-gap: 1rem;
-    margin-bottom: .5rem;
-    font-size: 1.2rem;
+    margin-bottom: var(--space-sm);
+    font-size: var(--text-size-md);
   }
 
   .forecast-item .low {
-    color: #ccc;
+    color: var(--color-grey);
   }
 
   .forecast-item small {

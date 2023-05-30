@@ -1,18 +1,22 @@
 <script>
-  import EntityCard from './EntityCard.svelte';
-  import PersonCard from './PersonCard.svelte';
-  import WeatherCard from './WeatherCard.svelte';
-  import PlantCard from './PlantCard.svelte';
-  import DateTimeCard from './DateTimeCard.svelte';
+  import Entities from './Entities.svelte';
+  import Person from './Person.svelte';
+  import Weather from './Weather.svelte';
+  import Plants from './Plants.svelte';
+  import DateTime from './DateTime.svelte';
+  import Calendar from './Calendar.svelte';
+  import Glance from './Glance.svelte';
 
   export let item;
 
   const components = {
-    EntityCard,
-    PersonCard,
-    WeatherCard,
-    PlantCard,
-    DateTimeCard,
+    Entities,
+    Person,
+    Weather,
+    Plants,
+    DateTime,
+    Calendar,
+    Glance,
   }
 </script>
 

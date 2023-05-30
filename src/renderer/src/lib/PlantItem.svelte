@@ -16,23 +16,24 @@
   }
 </script>
 
-<div class="plantcard {item.state}">
-  <Icon height={48} icon="{icons[item.state]}" />
+<div class="plant {item.state}">
+  <div class="content">
+    <header class="header">
+      <Icon height={32} icon="{icons[item.state]}" />
+      <h1 class="title">{item.title??item.attributes?.friendly_name}</h1>
+    </header>
 
-  <div class="plantcard__main">
-    <h5 class="plant__title">{item.attributes?.friendly_name}</h5>
-
-    <ul class="plantcard__details">
+    <ul class="details">
       {#if item.attributes.moisture != 'unavailable'}
         <li class="moisture">
           <Icon icon="mdi-water-percent" />
-          {item.attributes.moisture} {item.attributes.unit_of_measurement_dict['moisture']}
+          {item.attributes.moisture}{item.attributes.unit_of_measurement_dict['moisture']}
         </li>
       {/if}
       {#if item.attributes.temperature != 'unavailable'}
         <li class="temperature">
           <Icon icon="mdi-temperature" />
-          {item.attributes.temperature} {item.attributes.unit_of_measurement_dict['temperature']}
+          {item.attributes.temperature}{item.attributes.unit_of_measurement_dict['temperature']}
         </li>
       {/if}
       {#if item.attributes.conductivity != 'unavailable'}
@@ -50,25 +51,25 @@
     </ul>
   </div>
 
-  <ul class="plantcard__problems">
-    <li class="plantcard__problems-moisture">
+  <ul class="problems">
+    <li class="problems-moisture">
       {#if problems.includes('moisture_high')}
-        &darr;
+        ▾
         <Icon height={32} icon="mdi-water-alert" />
       {/if}
       {#if problems.includes('moisture_low')}
-        &uarr;
+        ▴
         <Icon height={32} icon="mdi-watering-can" />
       {/if}
     </li>
 
-    <li class="plantcard__problems-conductivity">
+    <li class="problems-conductivity">
       {#if problems.includes('conductivity_high')}
-        &darr;
+        ▾
         <Icon height={32} icon="mdi-leaf" />
       {/if}
       {#if problems.includes('conductivity_low')}
-        &uarr;
+        ▴
         <Icon height={32} icon="mdi-leaf-off" />
       {/if}
     </li>
@@ -76,50 +77,61 @@
 </div>
 
 <style lang="scss">
-  .plantcard {
+  .plant {
     display: flex;
     flex-direction: row;
     align-items: center;
-    column-gap: 1rem;
+    column-gap: var(--space-md);
     margin-bottom: 1rem;
   }
 
-  .plantcard__title {
+  .header {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-sm);
+  }
+
+  .title {
+    font-size: var(--text-size-lg);
+    font-weight: 600;
     display: flex;
     align-items: center;
     flex-direction: row;
-    column-gap: .5rem;
+    column-gap: var(--space-sm);
   }
 
-  .plantcard__details {
+  .details {
     list-style: none;
     padding: 0;
     display: flex;
     margin-left: auto;
-    column-gap: .8rem;
-    font-size: 1.1rem;
+    margin-top: var(--space-sm);
+    column-gap: var(--space-md);
+    font-size: var(--text-size-sm);
   }
 
-  .plantcard__details li {
+  .details li {
     display: flex;
     align-items: center;
-    margin-top: .5rem;
+    font-weight: 400;
+    color: var(--color-secondary);
   }
 
-  .plantcard__problems {
+  .problems {
     list-style: none;
     padding: 0;
     margin-left: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
-    column-gap: 1rem;
+    column-gap: var(--space-md);
   }
 
-  .plantcard__problems li {
+  .problems li {
     display: flex;
     align-items: center;
-    font-size: 2rem;
-    color: rgb(255, 155, 155);
+    gap: var(--space-sm);
+    font-size: var(--text-size-lg);
+    color: var(--color-red);
   }
 </style>

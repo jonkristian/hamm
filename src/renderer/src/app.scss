@@ -1,3 +1,34 @@
+:root {
+  --background: hsl(0, 0%, 0%);
+  --color-primary: hsl(0, 0%, 100%);
+  --color-secondary: hsl(0, 10%, 70%);
+  --color-underline: hsl(0, 10%, 30%);
+
+  --color-grey: hsl(0, 0%, 80%);
+  --color-red: hsl(0, 100%, 80%);
+  --color-blue: hsl(200, 65%, 70%);
+  --color-yellow: hsl(55, 100%, 70%);
+
+  --header-size-xl: 5rem;
+  --header-size-lg: 4rem;
+  --header-size-md: 3rem;
+  --header-size-sm: 2.2rem;
+
+  --text-size-xl: 1.8rem;
+  --text-size-lg: 1.4rem;
+  --text-size-md: 1.2rem;
+  --text-size-sm: 1rem;
+  --text-size-xs: .8rem;
+
+  --space-xl: 3rem;
+  --space-lg: 2rem;
+  --space-md: 1rem;
+  --space-sm: .5rem;
+  --space-xs: .25rem;
+
+  --cards-gap: 2rem;
+}
+
 * {
   margin: 0;
 }
@@ -10,9 +41,10 @@ body,
 
 body {
   font-family: 'Arimo';
-  background: #000;
-  color: #fff;
+  background: var(--background);
+  color: var(--color-primary);
   font-size: 24px;
+  letter-spacing: 0.03rem;
 }
 
 .cards {
@@ -31,8 +63,8 @@ body {
   height: 100%;
 
   &__card {
-    margin: 1rem;
-    font-size: 1.2rem;
+    font-size: var(--text-size-md);
+    margin-bottom: var(--cards-gap);
   }
 
   .top {
@@ -52,29 +84,31 @@ body {
   }
 }
 
-.card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
 h1 {
-  font-size: 5rem;
+  font-size: var(--header-size-xl);
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: var(--header-size-lg);
 }
 
 h3 {
-  font-size: 3rem;
+  font-size: var(--header-size-md);
 }
 
 h4 {
-  font-size: 2rem;
+  font-size: var(--text-size-xl);
 }
 
 h5 {
-  font-size: 1.4rem;
+  font-size: var(--text-size-lg);
   font-weight: 400;
+}
+
+h6, p, li {
+  font-size: var(--text-size-md);
+}
+
+small {
+  font-size: var(--text-size-sm);
 }

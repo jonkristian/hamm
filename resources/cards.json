@@ -1,58 +1,86 @@
 {
   "weather":{
-     "entity_id":"weather.home",
-     "placement":"upper-left",
-     "component":"WeatherCard",
-     "show_forecast":true
+    "component":"Weather",
+    "placement":"upper-left",
+    "entity_id":"weather.home",
+    "show_forecast":true
   },
   "datetime":{
-     "placement":"upper-right",
-     "component":"DateTimeCard"
+    "component":"DateTime",
+    "placement":"upper-right"
   },
-  "loft_sliding_door":{
-    "entity_id":"binary_sensor.loft_sliding_door",
+  "entities":{
+    "component":"Entities",
     "placement":"middle-left",
-    "icon":"mdi-door",
-    "state_on":"Opened",
-    "state_off":"Closed",
-    "component":"EntityCard"
+    "entities": [
+      {
+        "entity_id":"light.office_downlights",
+        "title":"Office Downlights"
+      },
+      {
+        "entity_id":"binary_sensor.loft_sliding_door",
+        "icon":"mdi-door",
+        "state_true":"Open",
+        "state_false":"Closed"
+      }
+    ]
   },
-  "dracaena_marginata":{
-     "entity_id":"plant.dracaena_marginata",
-     "placement":"middle-right",
-     "display_brightness":false,
-     "component":"PlantCard"
+  "plants":{
+    "component":"Plants",
+    "placement":"middle-right",
+    "display_brightness":false,
+    "entities": [
+      {
+        "title":"Dracaena",
+        "entity_id":"plant.dracaena_marginata"
+      },
+      {
+          "entity_id":"plant.monstera_deliciosa"
+      },
+      {
+          "entity_id":"plant.monstera_deliciosa_2"
+      },
+      {
+          "entity_id":"plant.zamioculcas_zamiifolia"
+      }
+    ]
   },
-  "monstera_deliciosa":{
-     "entity_id":"plant.monstera_deliciosa",
-     "placement":"middle-right",
-     "display_brightness":false,
-     "component":"PlantCard"
-  },
-  "monstera_deliciosa_2":{
-     "entity_id":"plant.monstera_deliciosa_2",
-     "placement":"middle-right",
-     "display_brightness":false,
-     "component":"PlantCard"
-  },
-  "zamioculcas_zamiifolia":{
-     "entity_id":"plant.zamioculcas_zamiifolia",
-     "placement":"middle-right",
-     "display_brightness":false,
-     "component":"PlantCard"
+  "calendar":{
+    "component":"Calendar",
+    "placement":"middle-left",
+    "days": 14,
+    "entities": [
+      {
+        "entity_id":"calendar.games",
+        "color":"#00d2d5"
+      },
+      {
+        "entity_id":"calendar.kalender",
+        "color":"#ff7f00",
+        "show_description": "next"
+      },
+      {
+        "entity_id":"calendar.tv_series",
+        "color":"#7f80cd"
+      },
+      {
+        "entity_id":"calendar.movies",
+        "color":"#af8d00"
+      }
+    ]
   },
   "person_one":{
-     "entity_id":"person.one",
-     "placement":"bottom",
-     "icon":"mdi-face-woman",
-     "title":"Person name",
-     "component":"PersonCard"
+    "component":"PersonCard",
+    "placement":"bottom",
+    "entity_id":"person.one",
+    "icon":"mdi-face-woman",
+    "title":"Person name"
   },
   "person_two":{
-     "entity_id":"person.two",
-     "placement":"bottom",
-     "icon":"mdi-face-man",
-     "title":"Person name",
-     "component":"PersonCard"
+    "component":"PersonCard",
+    "placement":"bottom",
+    "entity_id":"person.two",
+    "icon":"mdi-face-man",
+    "title":"Person name"
   }
 }

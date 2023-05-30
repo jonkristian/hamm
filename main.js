@@ -30,41 +30,35 @@ function createWindow() {
     ignoreInitial: true,
   });
 
-  // Handle file change event
   watcher.on('change', async (filePath) => {
     try {
-      const [configContent, cardsContent] = await Promise.all([
-        readFileContent(configFilePath),
-        readFileContent(cardsFilePath),
-      ]);
-      console.log('File changed:', filePath);
-      mainWindow.webContents.send('file-changed', filePath, {
-        config: configContent,
-        cards: cardsContent,
-      });
+      setTimeout(async () => {
+        const content = await readFileContent(filePath);
+        mainWindow.webContents.send('file-changed', filePath, { content });
+      }, 1500); // Delay of 1500 milliseconds
     } catch (error) {
       console.error('Error reading file:', error);
       mainWindow.webContents.send('file-changed', filePath, null);
     }
   });
 
-  ipcMain.handle('get-file-content', async () => {
-    console.log('get-file-content');
+  ipcMain.handle('get-config', async () => {
     try {
-      const [configContent, cardsContent] = await Promise.all([
-        readFileContent(configFilePath),
-        readFileContent(cardsFilePath),
-      ]);
-      return {
-        config: configContent,
-        cards: cardsContent,
-      };
+      const content = await readFileContent(configFilePath);
+      return { userDataPath: configFilePath, content };
     } catch (error) {
-      console.error('Error reading file:', error);
-      return {
-        config: null,
-        cards: null,
-      };
+      console.error('Error reading config file:', error);
+      return null;
+    }
+  });
+
+  ipcMain.handle('get-cards', async () => {
+    try {
+      const content = await readFileContent(cardsFilePath);
+      return { userDataPath: cardsFilePath, content };
+    } catch (error) {
+      console.error('Error reading cards file:', error);
+      return null;
     }
   });
 
@@ -83,11 +77,11 @@ function createWindow() {
 
 function readFileContent(filePath) {
   return new Promise((resolve, reject) => {
-    fs.readFile(filePath, 'utf-8', (error, content) => {
+    fs.readFile(filePath, 'utf8', (error, content) => {
       if (error) {
         reject(error);
       } else {
-        resolve(JSON.parse(content));
+        resolve(content);
       }
     });
   });
