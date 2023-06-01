@@ -24,6 +24,8 @@ export async function getCalendarEvents(index, item, days, conf) {
         for(const element of res) {
           element.color = item.color??getColorByIndex(index);
           element.entity_id = item.entity_id;
+          element.show_time = item.show_time;
+          element.show_rating = item.show_rating;
           element.show_description = item.show_description;
         }
         resolve(res)

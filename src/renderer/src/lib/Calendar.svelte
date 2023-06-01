@@ -7,7 +7,7 @@
   export let item;
   import { configStore } from '../stores/configStore';
 
-  let result = [];
+  let results = [];
   async function fetchCalendars(conf) {
     let calendars = [];
     if(undefined !== conf) {
@@ -24,7 +24,7 @@
         }
       }
 
-      result = formatCalendarEvents(calendars.flat());
+      results = formatCalendarEvents(calendars.flat());
     }
   }
 
@@ -43,22 +43,22 @@
 {#await fetchCalendars()}
   <p>{$t('loading')}</p>
 {:then items}
-  {#each result as item, dayIdx}
+  {#each results as result, dayIdx}
     <div class="day idx-{dayIdx}">
       <header class="header">
-      {#if dayjs(item.date).isToday()}
+      {#if dayjs(result.date).isToday()}
         <h2 class="title">{$t('today')}</h2>
       {:else}
         <h2 class="title">
-          {dayjs(item.date).format('dddd')}
+          {dayjs(result.date).format('dddd')}
         </h2>
         <span class="date">
-          {dayjs(item.date).format('DD/MM')} • {dayjs(item.date).fromNow()}
+          {dayjs(result.date).format('DD/MM')} • {dayjs(result.date).fromNow()}
         </span>
       {/if}
       </header>
       <div class="events">
-        {#each item.events as event}
+        {#each result.events as event}
           <CalendarItem dayIdx="{dayIdx}" event="{event}" />
         {/each}
       </div>

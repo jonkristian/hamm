@@ -6,6 +6,7 @@
   import DateTime from './DateTime.svelte';
   import Calendar from './Calendar.svelte';
   import Glance from './Glance.svelte';
+  import Entur from './Entur.svelte';
 
   export let item;
 
@@ -17,6 +18,7 @@
     DateTime,
     Calendar,
     Glance,
+    Entur,
   }
 </script>
 

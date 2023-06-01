@@ -1,6 +1,6 @@
 # HAMM (Home Assistant Magic Mirror)
 
-### Vite + Svelte application bundled with Electron to to display [Home Assistant](https://home-assistant.io) entities in a magic mirror like fashion.
+### Vite + Svelte application bundled with Electron to display [Home Assistant](https://home-assistant.io) entities in a magic mirror like fashion.
 
 ![image.png](./resources/hamm_preview.png)
 
@@ -58,11 +58,12 @@ Cards with multiple entities are structured like this:
 | -           |-                  |-                                           | -
 | `DateTime`  | `none`            | `show_seconds`(bool)                       | A clock w/wout seconds.
 | `Weather`   | `weather.*`       | `show_forecast`(bool)                      | Weather w/wout forecast.
-| `Calendar`  | `calendar.*` List | `days`(int), `color`, `show_description`   | `days`=amount of days to show. `color`=hex format. `show_description`=two strings `all` or `next`
+| `Calendar`  | `calendar.*` List | `days`(int), `color`, `show_time`(bool), `show_rating`(bool), `show_description`   | `days`=amount of days to show. `color`=hex format. `show_description`=two strings `all` or `next`
 | `Entities`  | `entities` List   |                                            | Shows a simple list with entities and their state.
 | `Glance`    | `entities` List   | `columns` (int)                            | Vertically arranged title/state in columns.
 | `Person`    | `person:.*`       |                                            | Basic person card with current location.
 | `Plants`    | `entities` List   | `display_brightness` (bool)                | Displays a list of plants with statuses.
+| `Entur`     | `entities`List    | `show_next`(bool), `human_readable`(bool)  | `show_next` includes next departure. `human_readable` displays time in human readable format below.
 
 ### Bonus
 If you're using my [Media Tracker](https://github.com/jonkristian/mediatracker-ha) integration, the calendar also supports that.

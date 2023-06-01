@@ -1,6 +1,6 @@
 {
   "name": "hamm",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "main.js",
   "description": "HAMM (Home Assistant Magic Mirror)",
   "author": "Jon Kristian Nilsen <hello@jonkristian.no>",

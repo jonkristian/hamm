@@ -19,6 +19,10 @@ export default {
       "south-west": "SW",
       "west": "W",
       "north-west": "NW",
+      "arrives": "arrives",
+      "arrived": "arrived",
+      "departs": "departs",
+      "next_arrives": "Next arrives",
     },
     nb: {
       "loading": "Laster ...",
@@ -40,5 +44,9 @@ export default {
       "south-west": "SV",
       "west": "V",
       "north-west": "NV",
+      "arrives": "ankommer",
+      "arrived": "dro for",
+      "departs": "avgang",
+      "next_arrives": "Neste ankomst",
     },
   };

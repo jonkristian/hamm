@@ -7,6 +7,7 @@
   import weekOfYear from 'dayjs/plugin/weekOfYear';
   import relativeTime from "dayjs/plugin/relativeTime";
   import isToday from "dayjs/plugin/isToday";
+  import customParseFormat from 'dayjs/plugin/customParseFormat';
 
   const initLocale = (lng) => {
     const locales = {
@@ -26,6 +27,7 @@
   dayjs.extend(relativeTime);
   dayjs.extend(isToday);
   dayjs.extend(weekOfYear);
+  dayjs.extend(customParseFormat);
 
   export const gridArea = (placement) => {
     if(placement == 'top' || placement == 'bottom') {

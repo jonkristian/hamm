@@ -1,6 +1,6 @@
 <script>
   import Icon from '@iconify/svelte';
-
+  import dayjs from "dayjs";
   export let event;
   export let dayIdx;
 
@@ -15,8 +15,11 @@
 <div class="event idx-{dayIdx}" style="--event-color: {event.color}">
   <header class="header">
     <span class="dot"></span>
+    {#if event.show_time}
+      <p class="time">{dayjs(event.start.dateTime).format("h:mm")}</p>
+    {/if}
     <h1 class="title">{event.summary}</h1>
-    {#if isMediaTracker && meta.tmdb_rating}
+    {#if isMediaTracker && event.show_rating && meta.tmdb_rating}
       <small class="rating"><Icon icon="mdi-star" /> {meta.tmdb_rating.toFixed(1)}</small>
     {/if}
   </header>
